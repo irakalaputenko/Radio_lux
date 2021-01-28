@@ -5,6 +5,7 @@ class Body extends StatefulWidget {
   @override
   _BodyState createState() => _BodyState();
 }
+bool isButtonPressed = false;
 
 class _BodyState extends State<Body> {
   @override
@@ -66,9 +67,13 @@ class _BodyState extends State<Body> {
                         padding: const EdgeInsets.all(15.0),
                         child: FlatButton(
 
-                          onPressed: (){},
-                          child: Image.asset("assets/btn.png"),
-                        ),
+                          onPressed: (){
+                            setState(() {
+                              isButtonPressed =!isButtonPressed;
+                            });
+                          },
+                          child: isButtonPressed ? Image.asset("assets/btn.png") : Image.asset("assets/Ellipse.png"),
+                                                  ),
                       ),
                     ],
                   ),
