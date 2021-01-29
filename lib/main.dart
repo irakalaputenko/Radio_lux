@@ -51,12 +51,18 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         actions: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.more_vert,
-              color: Colors.black,
-            ),
+          PopupMenuButton(
+            icon: Icon(Icons.more_vert, color: Colors.black,),
+            itemBuilder: (BuildContext bc) => [
+              PopupMenuItem(child: Text("New Chat"), value: "/newchat"),
+              PopupMenuItem(
+                  child: Text("New Group Chat"), value: "/new-group-chat"),
+              PopupMenuItem(child: Text("Settings"), value: "/settings"),
+            ],
+            onSelected: (route) {
+              print(route);
+              Navigator.pushNamed(context, route);
+            },
           ),
         ],
       ),
